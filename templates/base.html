@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    {% include 'parts/head.html' %}
+    <title>{% block title %} {% endblock %}</title>
+    {% block style %}
+
+    {% endblock %}
+</head>
+<body data-layout="horizontal" class="dark-topbar">
+
+    <!-- Top Bar Start -->
+    {% include 'parts/top_bar.html' %}
+    <!-- Top Bar End -->
+
+
+    <!-- end leftbar-tab-menu-->
+
+    <div class="page-wrapper">
+        <!-- Page Content-->
+        <div class="page-content-tab">
+            {% block main %}
+
+            {% endblock %}
+        </div>
+        <!-- end page content -->
+    </div>
+
+    <!--Start Footer-->
+    {% include 'parts/footer.html' %}
+    <!-- end Footer -->
+
+    <!-- Javascript  -->
+    <!-- vendor js -->
+    {% include 'parts/scripts.html' %}
+    {% block script %}
+
+    {% endblock %}
+</body>
+</html>
