@@ -2,6 +2,7 @@ from django.db import models
 
 from apps.base_app.models import BaseModel
 import locale
+from service_logics.utils import format_price_as_str, get_formated_phone_number, format_datetime_uz
 
 
 # Create your models here.
@@ -45,17 +46,11 @@ class Client(BaseModel):
 
     @property
     def translated_created_at(self):
-        if self.created_at:
-            locale.setlocale(locale.LC_TIME, 'uz_UZ.UTF-8')
-            return self.created_at.strftime('%Y-yil %-d-%b %H:%M')
-        return ""
+        return format_datetime_uz(self.created_at)
 
     @property
     def formated_phone_number(self):
-        if self.phone_number.startswith("+998") and len(self.phone_number) == 13:
-            return f"{self.phone_number[:4]} ({self.phone_number[4:6]}) {self.phone_number[6:9]} {self.phone_number[9:11]} {self.phone_number[11:]}"
-        else:
-            return self.phone_number if self.phone_number else "-"
+        return get_formated_phone_number(self.phone_number)
 
     @property
     def phone_number_without_suffix(self):

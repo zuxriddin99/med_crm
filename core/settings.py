@@ -40,16 +40,21 @@ BASE_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django_filters",
 ]
 
 LIBS = [
     "rest_framework",
+    'django_ckeditor_5',
+    "django_filters",
+
 ]
 APPS = [
     "apps.client",
     "apps.staff",
     "apps.main",
+    "apps.service",
+    "apps.reception",
+    "apps.payment",
 ]
 INSTALLED_APPS = BASE_APPS + LIBS + APPS
 

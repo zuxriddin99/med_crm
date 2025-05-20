@@ -18,8 +18,10 @@ class StaffUser(AbstractUser):
     role = models.CharField(
         max_length=30, choices=StaffRole.choices)
     branch = models.ForeignKey(
-        'main.ClinicBranch', on_delete=models.CASCADE, related_name='staff', blank=True, null=True)
+        'main.ClinicBranch', on_delete=models.CASCADE, related_name='staff', blank=True, null=True
+    )
     REQUIRED_FIELDS = []
+    providing_services = models.ManyToManyField("service.Service", related_name='staff', blank=True)
 
     def __str__(self):
         return self.username
