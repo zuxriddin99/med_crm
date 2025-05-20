@@ -5,7 +5,7 @@ import locale
 from django.db import models
 
 from apps.base_app.models import BaseModel
-from service_logics.utils import format_price_as_str, get_formated_phone_number, format_datetime_uz
+from logics.utils import format_price_as_str, get_formated_phone_number, format_datetime_uz
 
 
 # Create your models here.

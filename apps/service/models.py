@@ -57,7 +57,7 @@ class Service(MPTTModel):
     class Meta:
         verbose_name = "Xizmat yoki Kategoriya"
         verbose_name_plural = "Xizmatlar va Kategoriyalar"
-        db_table = "service_logics"
+        db_table = "logics"
         constraints = [
             models.UniqueConstraint(
                 fields=['branch', 'queue_letter'],
