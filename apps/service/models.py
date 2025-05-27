@@ -37,7 +37,7 @@ class Service(MPTTModel):
         verbose_name="Faollik holati",
         help_text="Faol xizmat yoki kategoriya ekanligini belgilang."
     )
-    is_analysis = models.BooleanField(
+    is_laboratory_analysis = models.BooleanField(
         default=True,
         verbose_name="Labaratoriya analizi.",
         help_text="Labaratoriya analizi."

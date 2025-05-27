@@ -175,3 +175,4 @@ sentry_sdk.init(
     # of transactions for tracing.
     traces_sample_rate=1.0,
 )
+from core.ckeditor_custom import *
