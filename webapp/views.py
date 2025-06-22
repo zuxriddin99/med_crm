@@ -19,12 +19,19 @@ class LoginRequiredMixin(AccessMixin):
             return self.handle_no_permission()
         if not self.has_department(request.user):
             return self.handle_no_permission()
+        if not self.has_access_department(request):
+            return self.handle_no_permission()
+
         return super().dispatch(request, *args, **kwargs)
 
     def has_department(self, user: StaffUser):
         return bool(user.branch_id)
 
+    def has_access_department(self, request):
+        req_branch_id = request.session['branch_id']
+        user_branch_id = request.user.branch_id
+        return req_branch_id == user_branch_id
+
 
 class TestView(generic.TemplateView):
     template_name = 'index.html'
-

@@ -5,38 +5,41 @@
 <head>
     {% include 'parts/head.html' %}
     <title>{% block title %} {% endblock %}</title>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
     {% block style %}
 
     {% endblock %}
 </head>
 <body data-layout="horizontal" class="dark-topbar">
-
-    <!-- Top Bar Start -->
+{% block menu %}
     {% include 'parts/top_bar.html' %}
-    <!-- Top Bar End -->
+{% endblock %}
+<!-- Top Bar Start -->
+<!-- Top Bar End -->
 
 
-    <!-- end leftbar-tab-menu-->
+<!-- end leftbar-tab-menu-->
 
-    <div class="page-wrapper">
-        <!-- Page Content-->
-        <div class="page-content-tab">
-            {% block main %}
+<div class="page-wrapper" style="width: 100%;">
+    <!-- Page Content-->
+    <div class="page-content-tab">
+        {% block main %}
 
-            {% endblock %}
-        </div>
-        <!-- end page content -->
+        {% endblock %}
     </div>
+    <!-- end page content -->
+</div>
 
-    <!--Start Footer-->
-    {% include 'parts/footer.html' %}
-    <!-- end Footer -->
+<!--Start Footer-->
+{% include 'parts/footer.html' %}
+<!-- end Footer -->
 
-    <!-- Javascript  -->
-    <!-- vendor js -->
-    {% include 'parts/scripts.html' %}
-    {% block script %}
+<!-- Javascript  -->
+<!-- vendor js -->
+{% include 'parts/scripts.html' %}
+{% block script %}
 
-    {% endblock %}
+{% endblock %}
 </body>
 </html>

@@ -39,6 +39,8 @@ class AuthView(generic.View):
                 case StaffRole.LAB_TECH:
                     return redirect('webapp:laboratory:main')
                 case _:
+                    request.session.flush()
+                    logout(request)
                     messages.error(request, "Tizimga kirish uchun sizda ruxsat yo'q adminstratsiya bilan bog'laning")
                     return render(request, "auth.html",
                                   {"username": username, "password": password})
@@ -48,7 +50,24 @@ class AuthView(generic.View):
                           {"username": username, "password": password})
 
     def get(self, request, *args, **kwargs):
-        return render(request, "auth.html", )
+        user = request.user
+        if user.is_anonymous:
+            return render(request, "auth.html", )
+        match user.role:
+            case StaffRole.ADMIN:
+                return redirect('webapp:admin:main')
+            case StaffRole.RECEPTIONIST:
+                return redirect('webapp:reception:main')
+            case StaffRole.DOCTOR:
+                return redirect('webapp:doctor:main')
+            case StaffRole.LAB_TECH:
+                return redirect('webapp:laboratory:main')
+            case _:
+                request.session.flush()
+                logout(request)
+                messages.error(request, "Tizimga kirish uchun sizda ruxsat yo'q adminstratsiya bilan bog'laning")
+                return render(request, "auth.html",
+                              {"username": "", "password": ""})
 
 
 def logout_view(request):
@@ -59,4 +78,4 @@ def logout_view(request):
     logout(request)
 
     # Redirect to the login page or another page
-    return redirect('web:auth:login')
+    return redirect('webapp:auth:login')

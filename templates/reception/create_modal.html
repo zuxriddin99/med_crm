@@ -1,0 +1,62 @@
+{% load static %}
+<div class="modal fade" id="exampleModalPrimary" tabindex="-1" role="dialog" aria-labelledby="exampleModalPrimary1"
+     aria-hidden="true" data-bs-backdrop="static" style="--bs-modal-width: 90%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h6 class="modal-title m-0 text-white" id="exampleModalPrimary1">Primary Modal</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div><!--end modal-header-->
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">
+                        <!-- Nav tabs -->
+                        <div class="nav-tabs-custom text-center">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link text-center active" data-bs-toggle="tab"
+                                       href="#cu_home" role="tab"><i data-feather="user" class="icon-dual"></i> Mijoz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-center" data-bs-toggle="tab"
+                                       href="#cu_profile" role="tab"> Muolaja</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-center" data-bs-toggle="tab"
+                                       href="#cu_settings" role="tab"> To'lov.</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div><!--end card-header-->
+                    <div class="card-body">
+
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active p-3" id="cu_home" role="tabpanel">
+                                <p class="mb-0 text-muted">
+                                    Raw denim you probably haven't heard of them jean shorts Austin.
+                                </p>
+                            </div>
+                            <div class="tab-pane p-3" id="cu_profile" role="tabpanel">
+                                <p class="mb-0 text-muted">
+                                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla.
+                                </p>
+                            </div>
+                            <div class="tab-pane p-3" id="cu_settings" role="tabpanel">
+                                <p class="text-muted mb-0">
+                                    Trust fund seitan letterpress, keytar raw denim keffiyeh etsy.
+                                </p>
+                            </div>
+                        </div> <!--end tab-content-->
+                    </div><!--end card-body-->
+                </div><!--end card-->
+            </div><!--end modal-body-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-de-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-de-primary btn-sm">Save changes</button>
+            </div><!--end modal-footer-->
+        </div><!--end modal-content-->
+    </div><!--end modal-dialog-->
+</div><!--end modal-->

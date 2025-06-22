@@ -83,6 +83,10 @@ class Visit(BaseModel):
     def discount_str(self):
         return format_price_as_str(self.discount)
 
+    @property
+    def client_full_name(self):
+        return f"{self.client.last_name} {self.client.first_name}"
+
 
 class VisitItem(BaseModel):
     visit = models.ForeignKey(
